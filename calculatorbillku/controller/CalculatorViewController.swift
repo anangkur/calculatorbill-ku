@@ -37,7 +37,6 @@ class CalculatorViewController: UIViewController {
             resetPercentButtonSelected()
             tip = 0.0
         }
-        print(tip)
     }
     
     private func setZeroPercentButtonSelected() {
@@ -66,10 +65,16 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         splitValueLabel.text = String(format: "%.0f", sender.value)
-        print(sender.value)
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
+        if let totalBill: Float = Float(billTotalTextField.text ?? "0.0") {
+            let totalAfterTip = totalBill + (totalBill * tip)
+            if let split = Float(splitValueLabel.text ?? "0") {
+                let totalAfterSplit = totalAfterTip / split
+                print(totalAfterSplit)
+            }
+        }
     }
 }
 
