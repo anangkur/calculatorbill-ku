@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calculator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="calculatorbillku" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="calculatorbillku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. 123.45" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-9V-jqD" userLabel="billTotalTextField">
                                                                 <rect key="frame" x="16" y="37.666666666666657" width="361" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -80,18 +80,27 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="0%"/>
+                                                                        <connections>
+                                                                            <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Pd-Ho-IlJ"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fd-q1-Y99" userLabel="buttonTenPercent">
                                                                         <rect key="frame" x="131" y="0.0" width="131" height="41"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="10%"/>
+                                                                        <connections>
+                                                                            <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y5W-VX-NkL"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiY-ms-bef" userLabel="buttonTwentyPercent">
                                                                         <rect key="frame" x="262" y="0.0" width="131" height="41"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="20%"/>
+                                                                        <connections>
+                                                                            <action selector="tipChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6x-iD-Nb7"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
@@ -139,6 +148,9 @@
                                                                     </label>
                                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="N5U-gi-ZDu" userLabel="splitValueStepper">
                                                                         <rect key="frame" x="36" y="3" width="94" height="32"/>
+                                                                        <connections>
+                                                                            <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bj3-o5-pTe"/>
+                                                                        </connections>
                                                                     </stepper>
                                                                 </subviews>
                                                             </stackView>
@@ -168,6 +180,9 @@
                                                         <rect key="frame" x="149" y="58.666666666666629" width="95" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Calculate"/>
+                                                        <connections>
+                                                            <action selector="calculatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ozo-EQ-b4d"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -192,6 +207,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="billTotalTextField" destination="tvZ-9V-jqD" id="jPK-H6-CVc"/>
+                        <outlet property="buttonTenPercent" destination="6Fd-q1-Y99" id="yrL-8o-WRE"/>
+                        <outlet property="buttonTwentyPercent" destination="YiY-ms-bef" id="wEw-wg-a8W"/>
+                        <outlet property="buttonZeroPercent" destination="Us8-3d-lqM" id="jdk-oz-Ejl"/>
+                        <outlet property="splitValueLabel" destination="YH4-O1-Hur" id="xq9-Ga-IeO"/>
                         <segue destination="p2X-qO-LjK" kind="presentation" identifier="goToResult" id="rWd-P4-TDH"/>
                     </connections>
                 </viewController>
