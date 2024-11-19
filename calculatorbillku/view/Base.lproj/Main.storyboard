@@ -270,7 +270,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtA-1T-LzV">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="280.66666666666669"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split between 0 people, with 0% tip." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xy-bb-F7z">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split between 0 people, with 0% tip." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xy-bb-F7z" userLabel="settingLabel">
                                                         <rect key="frame" x="52.333333333333343" y="129.66666666666663" width="288.33333333333326" height="21.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
@@ -296,6 +296,9 @@
                                                         <rect key="frame" x="140.66666666666666" y="123.33333333333324" width="112" height="34.333333333333329"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Recalculate"/>
+                                                        <connections>
+                                                            <action selector="recalculatePressed:" destination="p2X-qO-LjK" eventType="touchUpInside" id="kjw-ru-Wuv"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
@@ -319,6 +322,10 @@
                             <constraint firstItem="57m-M8-NYT" firstAttribute="leading" secondItem="Jf4-FK-fFm" secondAttribute="leading" id="tJl-Nv-8ww"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="settingLabel" destination="9Xy-bb-F7z" id="iun-xR-vW5"/>
+                        <outlet property="totalValueLabel" destination="7hS-Y4-xda" id="5sK-CT-YtP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1y7-Dh-YwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
