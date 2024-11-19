@@ -16,6 +16,8 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var billTotalTextField: UITextField!
     
     private var tip: Float = 0.0
+    private var split: Int = 0
+    private var totalAfterSplit: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,16 +66,29 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        splitValueLabel.text = String(format: "%.0f", sender.value)
+        split = Int(sender.value)
+        splitValueLabel.text = String(split)
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         if let totalBill: Float = Float(billTotalTextField.text ?? "0.0") {
             let totalAfterTip = totalBill + (totalBill * tip)
             if let split = Float(splitValueLabel.text ?? "0") {
-                let totalAfterSplit = totalAfterTip / split
-                print(totalAfterSplit)
+                totalAfterSplit = totalAfterTip / split
+                self.performSegue(withIdentifier: "goToResult", sender: self)
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goToResult":
+            let segueDestinationVC = segue.destination as! ResultViewController
+            segueDestinationVC.totalAfterSplit = self.totalAfterSplit
+            segueDestinationVC.split = self.split
+            segueDestinationVC.tip = self.tip
+        default:
+            print("do nothing..")
         }
     }
 }

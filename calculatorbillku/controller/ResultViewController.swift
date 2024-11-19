@@ -12,13 +12,20 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var settingLabel: UILabel!
     @IBOutlet weak var totalValueLabel: UILabel!
     
+    var totalAfterSplit: Float? = nil
+    var split: Int? = nil
+    var tip: Float? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let tipInPercent = (tip ?? 0.0) * 100
+        totalValueLabel.text = "\(totalAfterSplit ?? 00)"
+        settingLabel.text = "Split between \(split ?? 0) people, with \(tipInPercent)% tip."
     }
     
     @IBAction func recalculatePressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     /*
