@@ -144,7 +144,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MYM-JU-s4u" userLabel="splitValueStackView">
                                                                 <rect key="frame" x="0.0" y="37.666666666666629" width="130" height="38.333333333333343"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH4-O1-Hur" userLabel="splitValueLabel">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH4-O1-Hur" userLabel="splitValueLabel">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="38.333333333333336"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                                         <nil key="textColor"/>
